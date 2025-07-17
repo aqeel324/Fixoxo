@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fixoxo - Home Services You Trust</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #2193b0, #6dd5ed);
+      color: white;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #003b6f;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px 50px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      background: white;
+      color: #2193b0;
+      padding: 14px 30px;
+      border-radius: 30px;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #e0f7ff;
+      transform: translateY(-2px);
+    }
+
+    .services {
+      padding: 60px 30px;
+      background: #f9f9f9;
+      color: #333;
+      text-align: center;
+    }
+
+    .services h2 {
+      color: #2193b0;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .service-box {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .about {
+      padding: 60px 30px;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .footer {
+      background: rgba(0,0,0,0.2);
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9rem;
+      position: relative;
+    }
+
+    .social-icon {
+      margin: 0 10px;
+      color: white;
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.2);
+      color: #e0f7ff;
+    }
+    .founder {
+  background: white;
+  color: #333;
+  text-align: center;
+  padding: 60px 30px;
+}
+
+.founder h2 {
+  font-size: 2rem;
+  color: #2193b0;
+  margin-bottom: 30px;
+}
+
+.founder-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.founder-box img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  margin-bottom: 15px;
+}
+
+.founder-box h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.founder-box p {
+  font-size: 1rem;
+  color: #666;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">Fixoxo</div>
+    <nav id="nav-links">
+  <a href="#services">Services</a>
+  <a href="#about">About Us</a>
+  <a href="join.html">Work With Us</a>
+  <a href="login.html" id="login-link">Login</a>
+  <a href="signup.html" id="signup-link">Signup</a>
+</nav>
+
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Fixoxo - Trusted Home Services</h1>
+    <p>Book electricians, plumbers, painters, and more with just a few clicks. Fast, affordable, and reliable service at your doorstep.</p>
+    <div class="btn-group">
+  <button class="btn" onclick="location.href='signup.html'">Get Started</button>
+  <button class="btn" onclick="location.href='join.html'">Join as Worker</button>
+  <button class="btn" onclick="location.href='services.html'">Browse Services</button>
+</div>
+  </section>
+
+  <!-- Services -->
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+    <div class="service-grid">
+      <div class="service-box"><strong>Electrician</strong></div>
+      <div class="service-box"><strong>Plumber</strong></div>
+      <div class="service-box"><strong>Painter</strong></div>
+      <div class="service-box"><strong>AC Technician</strong></div>
+      <div class="service-box"><strong>Carpenter</strong></div>
+      <div class="service-box"><strong>House Cleaning</strong></div>
+      <div class="service-box"><strong>House Shifting</strong></div>
+      <div class="service-box"><strong>Duct / Vent Cleaner</strong></div>
+    </div>
+  </section>
+<!-- Founder Section -->
+<section class="founder">
+  <h2>Founder & CEO</h2>
+  <div class="founder-box">
+    <img src="https://pbs.twimg.com/profile_images/1269790329403772929/XE0_bIQH_400x400.jpg" alt="Aqeel Baloch">
+    <h3>Aqeel Baloch</h3>
+    <p>Founder & CEO of Fixoxo</p>
+  </div>
+</section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <h2>About Fixoxo</h2>
+    <p>Fixoxo is your go-to platform for booking skilled workers for all your home service needs. We aim to simplify your life by connecting you with verified professionals quickly and safely.</p>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2025 Fixoxo. All rights reserved.
+    <a href="terms.html">Terms & Conditions</a> | 
+<a href="privacy.html">Privacy Policy</a>
+    <div style="margin-top: 10px;">
+      <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/923171030402" target="_blank" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+  </div>
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/923171030402" class="whatsapp-float" target="_blank" title="Chat with us on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<style>
+  .whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    font-size: 28px;
+    padding: 16px;
+    z-index: 999;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    text-decoration: none;
+  }
+
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+  }
+</style>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+  import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBldrvwoMbKl00UzYo2NoWrpslqYEVWjpw",
+    authDomain: "fixnetic-da509.firebaseapp.com",
+    projectId: "fixnetic-da509",
+    storageBucket: "fixnetic-da509.appspot.com",
+    messagingSenderId: "295933400245",
+    appId: "1:295933400245:web:b7c32d0ec7040c34155afc",
+    measurementId: "G-C2WSLDRQT5"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      const nav = document.getElementById('nav-links');
+      nav.innerHTML += `
+        <a href="profile.html">Profile</a>
+        <a href="#" onclick="logout()" style="color: red;">Logout</a>
+      `;
+      document.getElementById('login-link').style.display = "none";
+      document.getElementById('signup-link').style.display = "none";
+    }
+  });
+
+  window.logout = function () {
+    signOut(auth).then(() => {
+      location.reload();
+    });
+  }
+</script>
+
+</body>
+</html>

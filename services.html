@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fixnetic - Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #2193b0, #6dd5ed);
+      margin: 0;
+      padding: 0;
+      color: white;
+    }
+
+    header {
+      padding: 20px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .logout-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: white;
+      color: #2193b0;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .search-bar {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .search-bar input {
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+    }
+
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+
+    .service-card {
+      background-color: white;
+      color: #2193b0;
+      border-radius: 15px;
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-card h3 {
+      margin: 10px 0 5px;
+    }
+
+    .service-card p {
+      margin: 8px 0;
+    }
+
+    .book-btn {
+      background-color: #2193b0;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .rating {
+      color: gold;
+      font-size: 18px;
+    }
+
+    .faq {
+      background: white;
+      color: #2193b0;
+      padding: 30px;
+      margin: 40px auto;
+      max-width: 800px;
+      border-radius: 12px;
+    }
+
+    .faq h2 {
+      text-align: center;
+    }
+
+    .faq-item {
+      margin-bottom: 20px;
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Choose a Service</header>
+
+<!-- Back Button -->
+<div style="text-align: left; padding: 10px 30px;">
+  <button onclick="window.location.href='fixoxo.html'" style="
+    background: white;
+    color: #2193b0;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+  ">
+    ← Back to Home
+  </button>
+</div>
+
+<button class="logout-btn" onclick="logout()">Logout</button>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Search by city or service..." onkeyup="filterServices()">
+  </div>
+
+  <div class="services-container" id="serviceList">
+
+    <div class="service-card" data-city="all">
+      <div style="font-size: 40px;">💡</div>
+      <h3>Electrician</h3>
+      <p>Fix wiring, switches, and lighting issues.</p>
+      <p><strong>Fee:</strong> Rs. 1000</p>
+      <p class="rating">⭐⭐⭐⭐☆</p>
+      <button class="book-btn" onclick="selectService('Electrician')">Book Now</button>
+    </div>
+
+    <div class="service-card" data-city="all">
+      <div style="font-size: 40px;">🚰</div>
+      <h3>Plumber</h3>
+      <p>Leakage, drainage and water pipe solutions.</p>
+      <p><strong>Fee:</strong> Rs. 1000</p>
+      <p class="rating">⭐⭐⭐⭐⭐</p>
+      <button class="book-btn" onclick="selectService('Plumber')">Book Now</button>
+    </div>
+
+    <div class="service-card" data-city="all">
+      <div style="font-size: 40px;">🎨</div>
+      <h3>Painter</h3>
+      <p>Home, office & wall painting with clean finish.</p>
+      <p><strong>Fee:</strong> Rs. 2000/day</p>
+      <p class="rating">⭐⭐⭐⭐☆</p>
+      <button class="book-btn" onclick="selectService('Painter')">Book Now</button>
+    </div>
+
+    <div class="service-card" data-city="all">
+      <div style="font-size: 40px;">❄️</div>
+      <h3>AC Technician</h3>
+      <p>AC repair, gas refill & maintenance services.</p>
+      <p><strong>Fee:</strong> Rs. 1000</p>
+      <p class="rating">⭐⭐⭐⭐☆</p>
+      <button class="book-btn" onclick="selectService('AC Technician')">Book Now</button>
+    </div>
+
+    <div class="service-card" data-city="all">
+      <div style="font-size: 40px;">🪚</div>
+      <h3>Carpenter</h3>
+      <p>Furniture assembly, fitting & wood work.</p>
+      <p><strong>Fee:</strong> Rs. 1000</p>
+      <p class="rating">⭐⭐⭐⭐⭐</p>
+      <button class="book-btn" onclick="selectService('Carpenter')">Book Now</button>
+    </div>
+
+  </div>
+
+  <div class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <strong>💳 How can I pay?</strong>
+      <p>You can pay via EasyPaisa, JazzCash or bank transfer after booking.</p>
+    </div>
+    <div class="faq-item">
+      <strong>🧾 Will I get an invoice?</strong>
+      <p>Yes, you will receive an online invoice after confirming the booking.</p>
+    </div>
+    <div class="faq-item">
+      <strong>👨‍🔧 Who provides the tools?</strong>
+      <p>The service providers carry the tools. Any items like pipe, wire, etc., are paid separately.</p>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBldrvwoMbKl00UzYo2NoWrpslqYEVWjpw",
+      authDomain: "fixnetic-da509.firebaseapp.com",
+      projectId: "fixnetic-da509",
+      storageBucket: "fixnetic-da509.appspot.com",
+      messagingSenderId: "295933400245",
+      appId: "1:295933400245:web:b7c32d0ec7040c34155afc",
+      measurementId: "G-C2WSLDRQT5"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        window.location.href = "login.html";
+      }
+    });
+
+    window.logout = function () {
+      signOut(auth).then(() => {
+        window.location.href = "login.html";
+      });
+    };
+
+    window.selectService = function(serviceName) {
+      localStorage.setItem("selectedService", serviceName);
+      window.location.href = "book.html";
+    };
+
+    window.filterServices = function () {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const cards = document.querySelectorAll(".service-card");
+      cards.forEach(card => {
+        const name = card.querySelector("h3").textContent.toLowerCase();
+        card.style.display = name.includes(input) ? "block" : "none";
+      });
+    };
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fixoxo Invoice</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f4f8;
+      padding: 20px;
+    }
+
+    .invoice-box {
+      max-width: 650px;
+      margin: auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .logo-text {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 700;
+      color: #2193b0;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .row {
+      margin: 10px 0;
+    }
+
+    .label {
+      font-weight: bold;
+    }
+
+    .btns {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #0a8754;
+      color: white;
+    }
+
+    #qrcode {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="invoice-box" id="invoice">
+    <div class="logo-text">Fixoxo</div>
+    <div class="subtitle">Your Trusted Home Services</div>
+
+    <div class="info">
+      <div><strong>Invoice #:</strong> <span id="invoiceNumber">FIXOXO-20250710-9028</span></div>
+      <div><strong>Date:</strong> <span id="invoiceDate"></span></div>
+    </div>
+
+    <div class="row"><span class="label">Name:</span> <span id="fullname"></span></div>
+    <div class="row"><span class="label">Phone:</span> <span id="phone"></span></div>
+    <div class="row"><span class="label">Service:</span> <span id="service"></span></div>
+    <div class="row"><span class="label">Fee:</span> Rs. <span id="fee"></span></div>
+    <div class="row"><span class="label">City:</span> <span id="city"></span></div>
+    <div class="row"><span class="label">Date & Time:</span> <span id="datetime"></span></div>
+    <div class="row"><span class="label">Address:</span> <span id="address"></span></div>
+    <div class="row"><span class="label">Payment Method:</span> <span id="paymentMethod"></span></div>
+    <div class="row"><span class="label">Transaction ID:</span> <span id="txnId"></span></div>
+    <div class="row"><span class="label">Notes:</span> <span id="notes"></span></div>
+
+    <div id="qrcode"></div>
+
+    <div class="btns">
+  <button onclick="downloadPDF()">📥 Download Invoice PDF</button>
+  <button onclick="window.location.href='index.html'" style="background-color:#2193b0;">🏠 Back to Home</button>
+</div>
+
+  </div>
+
+  <script>
+    // Fill date
+    const now = new Date();
+    document.getElementById("invoiceDate").textContent = now.toLocaleDateString();
+
+    // Fill details from URL parameters
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("fullname").textContent = params.get("fullname") || "-";
+    document.getElementById("phone").textContent = params.get("phone") || "-";
+    document.getElementById("service").textContent = params.get("service") || "-";
+    document.getElementById("fee").textContent = params.get("fee") || "-";
+    document.getElementById("city").textContent = params.get("city") || "-";
+    document.getElementById("datetime").textContent = params.get("datetime") || "-";
+    document.getElementById("address").textContent = params.get("address") || "-";
+    document.getElementById("paymentMethod").textContent = params.get("paymentMethod") || "-";
+    document.getElementById("txnId").textContent = params.get("txnId") || "-";
+    document.getElementById("notes").textContent = params.get("notes") || "N/A";
+
+    // QR Code (EasyPaisa Txn Confirmation Placeholder)
+    const qr = new QRious({
+      element: document.createElement('canvas'),
+      value: "https://easypaisa-confirmation.fake/link?txn=" + (params.get("txnId") || "123456"),
+      size: 150
+    });
+    document.getElementById("qrcode").appendChild(qr.element);
+
+    // PDF Export
+    async function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.html(document.getElementById("invoice"), {
+        callback: function (doc) {
+          doc.save("Fixoxo-Invoice.pdf");
+        },
+        x: 10,
+        y: 10,
+        width: 190
+      });
+    }
+  </script>
+
+</body>
+</html>
